@@ -69,4 +69,25 @@ class LinkedList {
         if (!this.head) return;
         this.head = this.head.next;
     }
+
+    /**
+     * Find method will return boolean on the basis of the data is found in the linked list or not
+     * @param {*} data 
+     * @returns boolean
+     */
+    find(data) {
+        if (!this.head) return;
+
+        let found = false;
+        let current = this.head;
+        while (current) {
+            if (current.data == data) {
+                found = true;
+                break;
+            }
+            current = current.next
+        }
+
+        return found;
+    }
 }

@@ -90,4 +90,23 @@ class LinkedList {
 
         return found;
     }
+
+    /**
+     * Remove method will remove particular data from the linked list.
+     * @param {*} data 
+     * @returns void
+     */
+    remove(data) {
+        if (!this.head) return;
+
+        let current = this.head;
+        while (current) {
+            if (current.next && current.next.data == data) {
+                current.next = current.next.next;
+                break;
+            } else {
+                current = current.next
+            }
+        }
+    }
 }

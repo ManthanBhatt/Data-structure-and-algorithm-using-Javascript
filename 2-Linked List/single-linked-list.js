@@ -31,6 +31,22 @@ class LinkedList {
     }
 
     /**
+     * Pop method will remove the last element from the linked list
+     * @returns void
+     */
+    pop() {
+        if (!this.head) return;
+
+        let current = this.head;
+        while (current.next) {
+            if (current.next && !current.next.next)
+                current.next = current.next.next;
+            else
+                current = current.next;
+        }
+    }
+
+    /**
      * Unshift method will add data at the start of the linked list
      * @param {*} data 
      * @returns void

@@ -29,4 +29,19 @@ class LinkedList {
 
         current.next = new Node(data);
     }
+
+    /**
+     * Unshift method will add data at the start of the linked list
+     * @param {*} data 
+     * @returns void
+     */
+    unshift(data) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        const node = new Node(data);
+        node.next = this.head;
+        this.head = node;
+    }
 }

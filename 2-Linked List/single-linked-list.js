@@ -60,4 +60,13 @@ class LinkedList {
         node.next = this.head;
         this.head = node;
     }
+
+    /**
+     * Shift method will remove element from the start of the linked list
+     * @returns void
+     */
+    shift() {
+        if (!this.head) return;
+        this.head = this.head.next;
+    }
 }

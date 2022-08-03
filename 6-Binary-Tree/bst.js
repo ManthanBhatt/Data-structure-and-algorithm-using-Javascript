@@ -288,8 +288,26 @@ class BinarySearchTree {
                 result.push(node2PathFromRoot[i]);
             }
         }
+    }
 
-        result
+    invert() {
+        if (!this.root) return;
+        let Q = [];
+        Q.push(this.root);
+        while (Q.length) {
+            let node = Q.shift();
+            if (node.left && node.right) {
+                [node.left, node.right] = [node.right, node.left];
+            }
+
+            if (node.left != null) {
+                Q.push(node.left);
+            };
+            if (node.right != null) {
+                Q.push(node.right);
+            };
+        };
+        return this.root;
     }
 
 
@@ -313,3 +331,6 @@ console.log(bst.postOrder());
 console.log(bst.levelOrder());
 console.log(bst.treePath());
 console.log(bst.findPathBetweenTwoPoint(7, 20));
+console.log(bst.root);
+console.log(bst.invert());
+console.log(bst.treePath());

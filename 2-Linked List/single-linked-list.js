@@ -109,4 +109,44 @@ class LinkedList {
             }
         }
     }
+
+    reverseWithoutChangingOrigin() {
+        if (!this.head) return;
+
+        let current = this.head;
+        let reversed = null;
+        while (current) {
+            const node = new Node(current.data);
+            node.next = reversed;
+            reversed = node;
+            current = current.next;
+        }
+        console.log(reversed);
+        return reversed;
+    }
+
+    reverse() {
+        if (!this.head) return;
+
+        let prev = null;
+        let current = this.head;
+        let next = null;
+        while (current) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        this.head = prev;
+
+    }
 }
+
+const ll = new LinkedList();
+ll.push(1);
+ll.push(2);
+ll.push(3);
+ll.push(4);
+ll.push(5);
+ll.reverse();
+console.log(ll.head);
